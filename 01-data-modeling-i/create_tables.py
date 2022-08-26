@@ -1,22 +1,68 @@
 import psycopg2
 
-
-table_drop = "DROP TABLE IF EXISTS songplays"
+table_drop = "DROP TABLE IF EXISTS Event;DROP TABLE IF EXISTS Actor;DROP TABLE IF EXISTS Repo;DROP TABLE IF EXISTS Payload;DROP TABLE IF EXISTS Org;"
 
 table_create = """
-    CREATE TABLE IF NOT EXISTS xxx (
-    )
+    CREATE TABLE IF NOT EXISTS Event (
+        event_id VARCHAR(20) NOT NULL,
+        event_type VARCHAR(50) NOT NULL,
+        event_public BOOLEAN NOT NULL,
+        event_created_at TIMESTAMP NOT NULL,
+        event_repo_id BIGINT NOT NULL,
+        event_actor_id BIGINT NOT NULL,
+        event_org_id BIGINT,
+        event_payload_push_id BIGINT,
+        PRIMARY KEY (event_id),
+        FOREIGN KEY (event_repo_id)     REFERENCES Repo     (repo_id),
+        FOREIGN KEY (event_actor_id)    REFERENCES Actor    (actor_id),
+        FOREIGN KEY (event_org_id)      REFERENCES Org      (org_id),
+        FOREIGN KEY (event_payload_push_id)  REFERENCES Payload  (payload_push_id)
+    );
+
+    CREATE TABLE IF NOT EXISTS Actor (
+        actor_id BIGINT NOT NULL,
+        actor_login VARCHAR(50) NOT NULL,
+        actor_display_login VARCHAR(50) NOT NULL,
+        actor_gravatar_id VARCHAR(50),
+        actor_url VARCHAR(100) NOT NULL,
+        actor_avatar_url VARCHAR(100) NOT NULL,
+        PRIMARY KEY (actor_id)
+    );
+
+    CREATE TABLE IF NOT EXISTS Repo (
+        repo_id BIGINT NOT NULL,
+        repo_name VARCHAR(100) NOT NULL,
+        repo_url VARCHAR(150) NOT NULL,
+        PRIMARY KEY (repo_id)
+    );
+
+    CREATE TABLE IF NOT EXISTS Payload (
+        payload_push_id BIGINT NOT NULL,
+        payload_size BIGINT NOT NULL,
+        payload_ref VARCHAR(200) NOT NULL,
+        payload_commit_sha VARCHAR(100),
+        PRIMARY KEY (payload_push_id),
+        FOREIGN KEY (payload_commit_sha)  REFERENCES Committed (commit_sha)
+    );
+
+    CREATE TABLE IF NOT EXISTS Org (
+        org_id BIGINT NOT NULL,
+        org_login VARCHAR(50) NOT NULL,
+        org_gravatar_id VARCHAR(50),
+        org_url VARCHAR(100) NOT NULL,
+        org_avatar_url VARCHAR(100) NOT NULL,
+        PRIMARY KEY (org_id)
+    );
 """
 
 create_table_queries = [
-    table_create,
+     table_create_event, table_create_actor, table_create_repo, table_create_payload, table_create_org
 ]
 drop_table_queries = [
-    table_drop,
+    table_drop_event, table_drop_actor, table_drop_repo, table_drop_payload, table_drop_org
 ]
 
-
-def drop_tables(cur: PostgresCursor, conn: PostgresConn) -> None:
+def drop_tables(cur, conn) -> None:
     """
     Drops each table using the queries in `drop_table_queries` list.
     """
@@ -25,7 +71,7 @@ def drop_tables(cur: PostgresCursor, conn: PostgresConn) -> None:
         conn.commit()
 
 
-def create_tables(cur: PostgresCursor, conn: PostgresConn) -> None:
+def create_tables(cur, conn) -> None:
     """
     Creates each table using the queries in `create_table_queries` list.
     """
