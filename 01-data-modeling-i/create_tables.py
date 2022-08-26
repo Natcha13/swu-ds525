@@ -1,5 +1,6 @@
 import psycopg2
 
+
 table_drop_event   = "DROP TABLE IF EXISTS Event;"
 table_drop_actor   = "DROP TABLE IF EXISTS Actor;"
 table_drop_repo    = "DROP TABLE IF EXISTS Repo;"
