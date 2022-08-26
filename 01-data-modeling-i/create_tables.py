@@ -70,7 +70,9 @@ drop_table_queries = [
     table_drop_event, table_drop_actor, table_drop_repo, table_drop_payload, table_drop_org
 ]
 
-def drop_tables(cur, conn) -> None:
+PostgresCursor,PostgresConn = 0,0
+
+def drop_tables(cur: PostgresCursor, conn: PostgresConn) -> None:
     """
     Drops each table using the queries in `drop_table_queries` list.
     """
@@ -78,8 +80,7 @@ def drop_tables(cur, conn) -> None:
         cur.execute(query)
         conn.commit()
 
-
-def create_tables(cur, conn) -> None:
+def create_tables(cur: PostgresCursor, conn: PostgresConn) -> None:
     """
     Creates each table using the queries in `create_table_queries` list.
     """
