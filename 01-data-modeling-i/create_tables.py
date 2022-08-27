@@ -1,29 +1,11 @@
 import psycopg2
 
-
-table_drop_event   = "DROP TABLE IF EXISTS Event;"
 table_drop_actor   = "DROP TABLE IF EXISTS Actor;"
 table_drop_repo    = "DROP TABLE IF EXISTS Repo;"
 table_drop_payload = "DROP TABLE IF EXISTS Payload;"
 table_drop_org     = "DROP TABLE IF EXISTS Org;"
+table_drop_event   = "DROP TABLE IF EXISTS Event;"
 
-table_create_event = """
-    CREATE TABLE IF NOT EXISTS Event (
-        event_id VARCHAR(20) NOT NULL,
-        event_type VARCHAR(50) NOT NULL,
-        event_public BOOLEAN NOT NULL,
-        event_created_at TIMESTAMP NOT NULL,
-        event_repo_id BIGINT NOT NULL,
-        event_actor_id BIGINT NOT NULL,
-        event_org_id BIGINT,
-        event_payload_push_id BIGINT,
-        PRIMARY KEY (event_id),
-        FOREIGN KEY (event_repo_id)     REFERENCES Repo     (repo_id),
-        FOREIGN KEY (event_actor_id)    REFERENCES Actor    (actor_id),
-        FOREIGN KEY (event_org_id)      REFERENCES Org      (org_id),
-        FOREIGN KEY (event_payload_push_id)  REFERENCES Payload  (payload_push_id)
-    );
-"""
 table_create_actor = """
     CREATE TABLE IF NOT EXISTS Actor (
         actor_id BIGINT NOT NULL,
@@ -63,12 +45,29 @@ table_create_org = """
         PRIMARY KEY (org_id)
     );
 """
+table_create_event = """
+    CREATE TABLE IF NOT EXISTS Event (
+        event_id VARCHAR(20) NOT NULL,
+        event_type VARCHAR(50) NOT NULL,
+        event_public BOOLEAN NOT NULL,
+        event_created_at TIMESTAMP NOT NULL,
+        event_repo_id BIGINT NOT NULL,
+        event_actor_id BIGINT NOT NULL,
+        event_org_id BIGINT,
+        event_payload_push_id BIGINT,
+        PRIMARY KEY (event_id),
+        FOREIGN KEY (event_repo_id)     REFERENCES Repo     (repo_id),
+        FOREIGN KEY (event_actor_id)    REFERENCES Actor    (actor_id),
+        FOREIGN KEY (event_org_id)      REFERENCES Org      (org_id),
+        FOREIGN KEY (event_payload_push_id)  REFERENCES Payload  (payload_push_id)
+    );
+"""
 
 drop_table_queries = [
-    table_drop_event, table_drop_actor, table_drop_repo, table_drop_payload, table_drop_org
+    table_drop_actor, table_drop_repo, table_drop_payload, table_drop_org, table_drop_event
 ]
 create_table_queries = [
-     table_create_event, table_create_actor, table_create_repo, table_create_payload, table_create_org
+    table_create_actor, table_create_repo, table_create_payload, table_create_org, table_create_event
 ]
 
 
