@@ -5,15 +5,6 @@ from typing import List
 
 import psycopg2
 
-
-table_insert = """
-    INSERT INTO users (
-        xxx
-    ) VALUES (%s)
-    ON CONFLICT (xxx) DO NOTHING
-"""
-
-
 def get_files(filepath: str) -> List[str]:
     """
     Description: This function is responsible for listing the files in a directory
@@ -40,9 +31,49 @@ def process(cur, conn, filepath):
             data = json.loads(f.read())
             for each in data:
                 # Print some sample data
-                print(each["id"], each["type"], each["actor"]["login"])
+                
+                if each["type"] == "IssueCommentEvent":
+                    print(
+                        each["id"], 
+                        each["type"],
+                        each["actor"]["id"],
+                        each["actor"]["login"],
+                        each["repo"]["id"],
+                        each["repo"]["name"],
+                        each["created_at"],
+                        each["payload"]["issue"]["url"],
+                    )
+                else:
+                    print(
+                        each["id"], 
+                        each["type"],
+                        each["actor"]["id"],
+                        each["actor"]["login"],
+                        each["repo"]["id"],
+                        each["repo"]["name"],
+                        each["created_at"],
+                    )
 
                 # Insert data into tables here
+                insert_statement = f"""
+                    INSERT INTO actor (
+                        actor_id,
+                        actor_login,
+                        actor_display_login,
+                        actor_gravatar_id,
+                        actor_url,
+                        actor_avatar_url
+                    ) VALUES ('{each["actor"]["id"]}', '{each["actor"]["login"]}', '{each["actor"]["display_login"]}', '{each["actor"]["gravatar_id"]}', '{each["actor"]["url"]}', '{each["actor"]["avatar_url"]}')
+
+                    ON CONFLICT (actor_id) DO NOTHING
+                """
+                # print(insert_statement)
+                cur.execute(insert_statement)
+
+                
+
+                conn.commit()
+              
 
 
 def main():
