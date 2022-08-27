@@ -30,9 +30,7 @@ table_create_payload = """
         payload_push_id BIGINT NOT NULL,
         payload_size BIGINT NOT NULL,
         payload_ref VARCHAR(200) NOT NULL,
-        payload_commit_sha VARCHAR(100),
-        PRIMARY KEY (payload_push_id),
-        FOREIGN KEY (payload_commit_sha)  REFERENCES Committed (commit_sha)
+        PRIMARY KEY (payload_push_id)
     );
 """
 table_create_org = """
@@ -67,7 +65,7 @@ drop_table_queries   = [table_drop_event, table_drop_actor, table_drop_repo, tab
 create_table_queries = [table_create_actor, table_create_repo, table_create_payload, table_create_org, table_create_event]
 
 
-def drop_tables(cur: PostgresCursor, conn: PostgresConn) -> None:
+def drop_tables(cur, conn) -> None:
     """
     Drops each table using the queries in `drop_table_queries` list.
     """
@@ -75,7 +73,7 @@ def drop_tables(cur: PostgresCursor, conn: PostgresConn) -> None:
         cur.execute(query)
         conn.commit()
 
-def create_tables(cur: PostgresCursor, conn: PostgresConn) -> None:
+def create_tables(cur, conn) -> None:
     """
     Creates each table using the queries in `create_table_queries` list.
     """
