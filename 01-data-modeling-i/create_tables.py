@@ -63,15 +63,9 @@ table_create_event = """
     );
 """
 
-drop_table_queries = [
-    table_drop_actor, table_drop_repo, table_drop_payload, table_drop_org, table_drop_event
-]
-create_table_queries = [
-    table_create_actor, table_create_repo, table_create_payload, table_create_org, table_create_event
-]
+drop_table_queries   = [table_drop_event, table_drop_actor, table_drop_repo, table_drop_payload, table_drop_org]
+create_table_queries = [table_create_actor, table_create_repo, table_create_payload, table_create_org, table_create_event]
 
-
-PostgresCursor,PostgresConn = 0,0
 
 def drop_tables(cur: PostgresCursor, conn: PostgresConn) -> None:
     """
