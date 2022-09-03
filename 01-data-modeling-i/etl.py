@@ -5,6 +5,7 @@ from typing import List
 
 import psycopg2
 
+
 def get_files(filepath: str) -> List[str]:
     """
     Description: This function is responsible for listing the files in a directory
@@ -41,7 +42,7 @@ def process(cur, conn, filepath):
                         each["repo"]["id"],
                         each["repo"]["name"],
                         each["created_at"],
-                        each["payload"]["issue"]["url"],
+                        
                     )
                 else:
                     print(
@@ -70,12 +71,61 @@ def process(cur, conn, filepath):
                 # print(insert_statement)
                 cur.execute(insert_statement)
 
+                insert_statement = f"""
+                    INSERT INTO repo (
+                        repo_id,
+                        repo_name,
+                        repo_url
+                    ) VALUES ('{each["repo"]["id"]}', '{each["repo"]["name"]}', '{each["repo"]["url"]}')
+
+                    ON CONFLICT (repo_id) DO NOTHING
+                """
+                cur.execute(insert_statement)
+
+                insert_statement = f"""
+                    INSERT INTO payload (
+                        payload_push_id,
+                        payload_size,
+                        payload_ref
+                    ) VALUES ('{each["payload"]["id"]}', '{each["payload"]["size"]}', '{each["payload"]["ref"]}')
+
+                    ON CONFLICT (payload_push_id) DO NOTHING
+                """
+                cur.execute(insert_statement)
+                
+                
+                insert_statement = f"""
+                    INSERT INTO org (
+                        org_id,
+                        org_login,
+                        org_gravatar_id,
+                        org_url,
+                        org_avatar_url
+                    ) VALUES ('{each["org"]["id"]}', '{each["org"]["login"]}', '{each["org"]["gravatar_id"]}', '{each["org"]["url"]}' '{each["org"]["avatar_url"]}')
+
+                    ON CONFLICT (org_id) DO NOTHING
+                """
+                cur.execute(insert_statement)
                 
 
-                conn.commit()
+                insert_statement = f"""
+                    INSERT INTO events (
+                        events_id,
+                        event_type,
+                        event_public,
+                        event_created_at,
+                        event_repo_id,
+                        event_actor_id,
+                        event_org_id,
+                        event_payload_push_id
+                    ) VALUES ('{each["events"]["id"]}', '{each["events"]["type"]}', '{each["events"]["public"]}','{each["events"]["created_at"]}', '{each["repo"]["id"]}', '{each["actor"]["id"]}','{each["org"]["id"]}','{each["payload"]["id"]}')
+                    
+                    ON CONFLICT (events_id) DO NOTHING
+                        """
+                cur.execute(insert_statement)
+
+            conn.commit()
               
-
-
 def main():
     conn = psycopg2.connect(
         "host=127.0.0.1 dbname=postgres user=postgres password=postgres"
