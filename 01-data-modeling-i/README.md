@@ -40,13 +40,13 @@ connect postgres and login: http://localhost:8080/
 create tables
 
 ```sh
-$ python create_tables.py
+python create_tables.py
 ```
 
 insert data into tables:
 
 ```sh
-$ python etl.py
+python etl.py
 ```
 
 To shutdown, press Ctrl+C and run:
@@ -57,5 +57,5 @@ docker-compose down
 
 ## deactivate the visual environment:
 ```sh
-$ deactivate
+deactivate
 ```
