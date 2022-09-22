@@ -82,6 +82,7 @@ def process(cur, conn, filepath):
                 """
                 cur.execute(insert_statement)
 
+            try:
                 insert_statement = f"""
                     INSERT INTO payload (
                         payload_push_id,
@@ -92,8 +93,10 @@ def process(cur, conn, filepath):
                     ON CONFLICT (payload_push_id) DO NOTHING
                 """
                 cur.execute(insert_statement)
+            except:
+                pass
                 
-                
+            try:    
                 insert_statement = f"""
                     INSERT INTO org (
                         org_id,
@@ -106,8 +109,10 @@ def process(cur, conn, filepath):
                     ON CONFLICT (org_id) DO NOTHING
                 """
                 cur.execute(insert_statement)
-                
+            except:
+                pass    
 
+            try:
                 insert_statement = f"""
                     INSERT INTO events (
                         events_id,
@@ -121,8 +126,10 @@ def process(cur, conn, filepath):
                     ) VALUES ('{each["events"]["id"]}', '{each["events"]["type"]}', '{each["events"]["public"]}','{each["events"]["created_at"]}', '{each["repo"]["id"]}', '{each["actor"]["id"]}','{each["org"]["id"]}','{each["payload"]["id"]}')
                     
                     ON CONFLICT (events_id) DO NOTHING
-                        """
+                """
                 cur.execute(insert_statement)
+            except:
+                pass    
 
             conn.commit()
               
