@@ -5,19 +5,20 @@ from typing import List
 
 from cassandra.cluster import Cluster
 
-
+#Drop table to run next time
 table_drop = "DROP TABLE events"
 
 table_create = """
     CREATE TABLE IF NOT EXISTS events
     (
-        id text,
-        type text,
-        public boolean,
-        PRIMARY KEY (
-            id,
-            type
-        )
+        id                  text,
+        created_at          text,
+        type                text,
+        actor_id            text,
+        actor_login         text,
+        repo_id             text,
+        repo_name           text,
+        PRIMARY KEY ((type), actor_login)
     )
 """
 
@@ -43,7 +44,7 @@ def create_tables(session):
         except Exception as e:
             print(e)
 
-
+#Function pull data from .json 
 def get_files(filepath: str) -> List[str]:
     """
     Description: This function is responsible for listing the files in a directory
@@ -66,22 +67,31 @@ def process(session, filepath):
     all_files = get_files(filepath)
 
     for datafile in all_files:
-        with open(datafile, "r") as f:
+        with open(datafile, "r", encoding="utf-8") as f:
             data = json.loads(f.read())
             for each in data:
                 # Print some sample data
-                print(each["id"], each["type"], each["actor"]["login"])
+                #print(each["id"], each["type"], each["actor"]["login"])
 
                 # Insert data into tables here
+                try:
+                    query = f"""
+                    INSERT INTO events (id, type, created_at, actor_id, actor_login, repo_id, repo_name) 
+                    VALUES ('{each["id"]}', '{each["type"]}', '{each["created_at"]}', '{each["actor"]["id"]}', '{each["actor"]["login"]}', '{each["repo"]["id"]}', '{each["repo"]["name"]}')
+                    """
+                    session.execute(query)
+                    
+                except:
+                    query = f"""
+                    INSERT INTO events (id, type, created_at, actor_id, actor_login, repo_id, repo_name) 
+                    VALUES ('{each["id"]}', '{each["type"]}', '{each["created_at"]}', '{each["actor"]["id"]}', '{each["actor"]["login"]}', '{each["repo"]["id"]}', '{each["repo"]["name"]}')
+                    """
+                    session.execute(query)
 
+event_types = ['IssuesEvent','PullRequestReviewCommentEvent','CreateEvent','PullRequestEvent','PushEvent','PublicEvent'
+            ,'WatchEvent','DeleteEvent','PullRequestReviewEvent','ReleaseEvent', 'IssueCommentEvent']
 
-def insert_sample_data(session):
-    query = f"""
-    INSERT INTO events (id, type, public) VALUES ('23487929637', 'IssueCommentEvent', true)
-    """
-    session.execute(query)
-
-
+#connect to cassandra
 def main():
     cluster = Cluster(['127.0.0.1'])
     session = cluster.connect()
@@ -106,12 +116,12 @@ def main():
     drop_tables(session)
     create_tables(session)
 
-    # process(session, filepath="../data")
-    insert_sample_data(session)
+    process(session, filepath="../data")
 
+    print("Query for \'Events\' events")
     # Select data in Cassandra and print them to stdout
     query = """
-    SELECT * from events WHERE id = '23487929637' AND type = 'IssueCommentEvent'
+    SELECT id, type, created_at, actor_id, actor_login, repo_id, repo_name from events WHERE type = 'Events' ALLOW FILTERING
     """
     try:
         rows = session.execute(query)
@@ -120,6 +130,21 @@ def main():
 
     for row in rows:
         print(row)
+
+    print("Number of each event by type, created_at: >= '2022-08-17T15:54:00Z'")
+    for event_type in event_types:
+        # Select data in Cassandra and print them to stdout
+        query = """
+        SELECT type, count(*) from events WHERE type = '"""+event_type+"""' AND created_at >= '2022-08-17T15:54:00Z' GROUP BY type ALLOW FILTERING;
+        """
+        try:
+            rows = session.execute(query)
+        except Exception as e:
+            print(e)
+
+        for row in rows:
+            print(row)
+
 
 
 if __name__ == "__main__":
