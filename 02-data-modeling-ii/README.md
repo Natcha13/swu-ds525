@@ -21,13 +21,19 @@ pip install -r requirements.txt
 docker-compose up
 ```
 
-To shutdown, press Ctrl+C and run:
-
-```sh
-docker-compose down
-```
-
 ## Create table ,Insert and select data
 ```sh
 python etl.py
+```
+
+## Shutdown steps
+
+##### stop Cassandra service by shutdown Docker:
+```sh
+$ docker-compose down
+```
+
+##### deactivate the visual environment:
+```sh
+$ deactivate
 ```
