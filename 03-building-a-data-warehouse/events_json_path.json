@@ -1,6 +1,5 @@
 {
   "jsonpaths": [
-    P
     "$.id",
     "$.type",
     "$.actor.id",
