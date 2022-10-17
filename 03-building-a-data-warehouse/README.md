@@ -1,7 +1,8 @@
 # Building a Data Warehouse
 
 ## Data Model
-![data model](pic/data model_dw.png)
+![AWS S3](pic/S3.png)
+![data model](pic/data_model_dw.png)
 
 ### 1. Create AWS S3
 ![AWS S3](pic/S3.png)
@@ -10,10 +11,10 @@
 ![AWS Redshift](pic/Redshift.png)
 
 ### 3. S3 Connection path
-![S3 Connection path](pic/Redshift Connect.png)
+![S3 Connection path](pic/S3_Connect.png)
 
 ### 4. Redshift Connection path
-![Redshift Connection path](pic/S3 Connect.png)
+![Redshift Connection path](pic/Redshift_Connect.png)
 
 
 ## Started
