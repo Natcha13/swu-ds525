@@ -1,7 +1,6 @@
 # Building a Data Warehouse
 
 ## Data Model
-![AWS S3](pic/S3.png)
 ![data model](pic/data_model_dw.png)
 
 ### 1. Create AWS S3
