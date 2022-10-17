@@ -21,7 +21,7 @@ create_table_queries = [
     """,
     """
     CREATE TABLE IF NOT EXISTS actors (
-        id int,
+        id text,
         login text,
         url text,
     )
@@ -35,7 +35,7 @@ create_table_queries = [
     """,
     """
     CREATE TABLE IF NOT EXISTS repos (
-        id int,
+        id text,
         name text,
         url text
     )
