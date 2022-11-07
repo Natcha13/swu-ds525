@@ -5,34 +5,33 @@
 <br>
 
 ## Getting Started
-<br>
 
 
-### change directory to project 04-building-a-data-lake:
+### 1. change directory to project 04-building-a-data-lake
 ```sh
 $ cd 04-building-a-data-lake
 ```
 
-### applying code for saving jupyter lab
+### 2. applying code for saving jupyter lab
 ```sh
 $ sudo chmod 777
 ```
 
-### prepare environment workspace by Docker:
+### 3. prepare environment workspace
 ```sh
 $ docker-compose up
 ```
 
-### Open JupyterLab URL:
+### 4. open JupyterLab URL
 <br>
 
 ![JupyterLab](pic/JupyterLab.jpg)
 <br>
 
-### Execute Notebook 'etl_local.ipynb'
+### 5. execute Notebook 'etl_local.ipynb'
 <br>
 
-### Check output data in folders
+### 6. check output data in folders
 <br>
 
 ## Shutdown steps
