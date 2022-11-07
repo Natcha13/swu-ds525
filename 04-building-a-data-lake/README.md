@@ -1,13 +1,40 @@
-# Building a Data Lake
+# Building a Data Warehouse
 
-เพื่อให้เราสามารถสร้างไฟล์ได้จาก Jupyter Lab ให้รันคำสั่งด้านล่างนี้
+## Data model
+![DataModel](pic/datalake.jpg)
+<br>
+__________
+<br>
 
+## Getting Started
+<br>
+
+
+### 1. change directory to project 04-building-a-data-lake:
 ```sh
-sudo chmod 777 .
+$ cd 04-building-a-data-lake
 ```
 
-แล้วค่อยรัน
-
+### 2. prepare environment workspace by Docker:
 ```sh
-docker-compose up
+$ docker-compose up
+```
+
+### 3. Open JupyterLab URL:
+<br>
+
+![JupyterLab](pic/JupyterLab.jpg)
+<br>
+
+### 4. Execute the Notebook 'etl_local.ipynb'
+<br>
+
+
+### 5. Check output data in folders:
+
+## Shutdown steps
+
+### 11. Shutdown environment workspace:
+```sh
+$ docker-compose down
 ```
