@@ -1,6 +1,6 @@
 # Creating and Scheduling Data Pipelines
 ## Data Diagram
-(pic/DataModel1.png)
+![Data Model](pic/DataModel1.png)
 
 
 ## Get start
@@ -33,12 +33,12 @@ docker-compose up
  เข้า Airflow ได้ที่ port 8080 (localhost:8080)
  จากนั้นให้ไปที่ tab admin เลือก  connection
  และเพิ่ม connection
-(pic/Picture1.png)
+![Airflow](pic/Picture1.png)
 
 
 ## data schedule
 ให้เข้าที่ tab Dags แล้ว etl โดยเราสามารถตรวจสอบการทำงานได้ในหน้า Graph
-(pic/Picture2.png)
+![Graph](pic/Picture2.png)
 
 ซึ่งถ้า schedule ทำงานปกติจะเป็นสีเขียว
 
