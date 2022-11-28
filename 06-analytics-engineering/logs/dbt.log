@@ -1,0 +1,44 @@
+
+
+============================== 2022-11-28 15:46:57.765449 | 8e2c2800-6c75-48b3-b872-13e936278dbe ==============================
+[0m15:46:57.765467 [info ] [MainThread]: Running with dbt=1.2.0
+[0m15:46:57.766490 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/gitpod/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m15:46:57.766910 [debug] [MainThread]: Tracking: tracking
+[0m15:46:57.820400 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff6920e1b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff6920e18e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff6920e1910>]}
+[0m15:46:57.821051 [info ] [MainThread]: Creating dbt configuration folder at /home/gitpod/.dbt
+
+
+============================== 2022-11-28 16:07:40.433745 | b22783f1-f8e1-4ced-9fc1-2615790ecdf2 ==============================
+[0m16:07:40.433764 [info ] [MainThread]: Running with dbt=1.2.0
+[0m16:07:40.435777 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/gitpod/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m16:07:40.436303 [debug] [MainThread]: Tracking: tracking
+[0m16:07:40.497063 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb802967be0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb802967970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb8029679a0>]}
+[0m16:09:42.489736 [debug] [MainThread]: Starter project path: /workspace/swu-ds525/06-analytics-engineering/ENV/lib/python3.8/site-packages/dbt/include/starter_project
+[0m16:11:19.527507 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb802967970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb8029678e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fb802967be0>]}
+
+
+============================== 2022-11-28 16:16:17.552775 | 6af731a2-1e96-4179-95b3-da93ecf77847 ==============================
+[0m16:16:17.552791 [info ] [MainThread]: Running with dbt=1.2.0
+[0m16:16:17.554396 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/gitpod/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m16:16:17.554839 [debug] [MainThread]: Tracking: tracking
+[0m16:16:17.626263 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fab48732b80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fab48732910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fab48732940>]}
+[0m16:18:41.156858 [debug] [MainThread]: Starter project path: /workspace/swu-ds525/06-analytics-engineering/ENV/lib/python3.8/site-packages/dbt/include/starter_project
+[0m16:19:07.076943 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fab48732910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fab48732880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fab48732b80>]}
+
+
+============================== 2022-11-28 16:30:10.508334 | 485b7076-384b-45a7-80f2-7418bc8c276f ==============================
+[0m16:30:10.508349 [info ] [MainThread]: Running with dbt=1.2.0
+[0m16:30:10.510089 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/gitpod/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m16:30:10.510542 [debug] [MainThread]: Tracking: tracking
+[0m16:30:10.569204 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8561b79b80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8561b79910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8561b79940>]}
+[0m16:31:37.982304 [info ] [MainThread]: A project called jaffle already exists here.
+[0m16:31:37.983244 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8561b796a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8561b79940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8561b79760>]}
+
+
+============================== 2022-11-28 16:41:47.153261 | 4714d971-6799-4922-9dba-65f371ce1c97 ==============================
+[0m16:41:47.153277 [info ] [MainThread]: Running with dbt=1.2.0
+[0m16:41:47.154569 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/gitpod/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m16:41:47.154914 [debug] [MainThread]: Tracking: tracking
+[0m16:41:47.209620 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7389e7eaf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7389e7e880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7389e7e8b0>]}
+[0m16:41:58.534482 [info ] [MainThread]: A project called jaffle already exists here.
+[0m16:41:58.535563 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7389e7e610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7389e7e8b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7389e7e6d0>]}
