@@ -1,4 +1,5 @@
 # Creating and Scheduling Data Pipelines
+
 ## Data Diagram
 ![Data Model](pic/DataModel1.png)
 
