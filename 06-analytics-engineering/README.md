@@ -1,5 +1,14 @@
 # Analytics Engineering
 
+change directory to project 
+```sh
+cd 06-analytics-engineering
+```
+```sh
+docker-compose up
+```
+open SQLPad on browser: port 3000
+
 Create a dbt project
 
 ```sh
@@ -47,12 +56,17 @@ dbt debug
 ```
 
 You should see "All checks passed!".
+![All checks passed](pic/checkspassed.png)
+
 
 To create models
 
 ```sh
 dbt run
 ```
+
+Check data on SQLPad
+![Check data on SQLPad](/pic/Checkdata.png)
 
 To test models
 
