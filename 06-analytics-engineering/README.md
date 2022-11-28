@@ -7,6 +7,7 @@ cd 06-analytics-engineering
 ```sh
 docker-compose up
 ```
+
 open SQLPad on browser: port 3000
 
 Create a dbt project
@@ -66,7 +67,7 @@ dbt run
 ```
 
 Check data on SQLPad
-![Check data on SQLPad](/pic/Checkdata.png)
+![Check data on SQLPad](/pic/checkdata.png)
 
 To test models
 
