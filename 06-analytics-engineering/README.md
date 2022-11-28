@@ -56,7 +56,8 @@ cd jaffle
 dbt debug
 ```
 
-You should see "All checks passed!".
+You should see "All checks passed!"
+
 ![All checks passed](pic/checkspassed.png)
 
 
@@ -67,7 +68,8 @@ dbt run
 ```
 
 Check data on SQLPad
-![Check data on SQLPad](/pic/checkdata.png)
+
+![Check data on SQLPad](pic/checkdata.png)
 
 To test models
 
