@@ -1,11 +1,11 @@
-# Project capstone By Pornpawit Saraboon
+# Project capstone
 
 
 ## Data modelling: Data warehouse
 <img src=/workspace/swu-ds525/capstone-project/pic/Data_Model.png.jpg>
 
 ## Project Documentation
-[Documentation link](/workspace/swu-ds525/capstone-project/Instruction_Capstone_Project.pdf)
+[Documentation link](https://github.com/Natcha13/swu-ds525/blob/9449bfc98358812a1d044a56e17646d3a47570d9/capstone-project/Instruction_Capstone_Project.pdf)
 
 ## Project Presentation
 [Presentation link](https://github.com/PornpawitSrSWU/swu-ds525/blob/main/final-capstone-project/Doc/Presentation.pdf)
