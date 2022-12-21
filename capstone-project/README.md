@@ -1,10 +1,10 @@
 # Capstone Project
 
 ## Data model: Data warehouse
-![Data Model](/workspace/swu-ds525/capstone-project/pic/Data_Model.jpg)
+![Data Model](pic/Data_Model.jpg)
 
 ## Project Documentation
-[Documentation link](https://github.com/Natcha13/swu-ds525/blob/9449bfc98358812a1d044a56e17646d3a47570d9/capstone-project/Instruction_Capstone_Project.pdf)
+[Documentation link](https://github.com/Natcha13/swu-ds525/blob/7ea38a1759cac4d25aeb7373135d392e6c8e5549/capstone-project/Instruction_Capstone_Project.pdf)
 
 ## Run command
 ```sh
@@ -13,10 +13,17 @@ python -m venv ENV
 source ENV/bin/activate
 pip install -r requirements.txt
 ```
+
+## Prepare your AWS access (GET your credential on AWS terminal)
+```sh
+cat ~/.aws/credentials
+```
+
 ## Upload data to S3
 ```sh
 python etl_s3.py
 ```
+
 ## Create table and load data from S3 to Redshift
 Running Airflow
 
