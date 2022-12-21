@@ -1,8 +1,8 @@
 # Project capstone
 
 
-## Data modelling: Data warehouse
-<img src=/workspace/swu-ds525/capstone-project/pic/Data_Model.png.jpg>
+## Data model: Data warehouse
+![Data Model](/pic/Data_Model.jpg)
 
 ## Project Documentation
 [Documentation link](https://github.com/Natcha13/swu-ds525/blob/9449bfc98358812a1d044a56e17646d3a47570d9/capstone-project/Instruction_Capstone_Project.pdf)
