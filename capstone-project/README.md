@@ -54,6 +54,11 @@ cd movieplatfrom
 dbt debug
 ```
 
+To create models
+
+```sh
+dbt run
+```
 You should see "All checks passed!".
 
 
