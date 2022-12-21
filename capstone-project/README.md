@@ -53,7 +53,6 @@ Test dbt connection
 cd movieplatfrom
 dbt debug
 ```
-You should see "All checks passed!".
 
 To create models
 
@@ -74,7 +73,7 @@ Stop services by shutdown Docker
 docker-compose down
 ```
 
-- Deactivate the virtual environment 
+Deactivate the virtual environment 
 
 ```sh
 $ deactivate
