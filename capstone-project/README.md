@@ -76,5 +76,5 @@ docker-compose down
 Deactivate the virtual environment 
 
 ```sh
-$ deactivate
+deactivate
 ```
