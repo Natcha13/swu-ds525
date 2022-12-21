@@ -25,6 +25,10 @@ python etl_s3.py
 ```
 
 ## Create table and load data from S3 to Redshift
+```sh
+python etl.py
+```
+
 Running Airflow
 
 ```sh
