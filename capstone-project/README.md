@@ -53,26 +53,28 @@ Test dbt connection
 cd movieplatfrom
 dbt debug
 ```
+You should see "All checks passed!".
 
 To create models
 
 ```sh
 dbt run
 ```
-You should see "All checks passed!".
 
 
 ## Dashboard Presentation
 [Presentation link](https://github.com/Natcha13/swu-ds525/blob/e99baa9e31bd83a93f8fa96dbd752f2c0fca734d/capstone-project/Dashboard-MoviesOnStreamingPlatforms.pdf)
 
-<br>
+
 ## And finally do not forget to shutdown
--  Stop services by shutdown Docker <br>
+
+Stop services by shutdown Docker
+
 ```sh
 docker-compose down
 ```
-<br>
-- Deactivate the virtual environment <br>
+
+- Deactivate the virtual environment 
 
 ```sh
 $ deactivate
