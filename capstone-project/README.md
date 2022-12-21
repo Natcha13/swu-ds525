@@ -4,7 +4,7 @@
 ![Data Model](pic/Data_Model.jpg)
 
 ## Project Documentation
-[Documentation link](https://github.com/Natcha13/swu-ds525/blob/7ea38a1759cac4d25aeb7373135d392e6c8e5549/capstone-project/Instruction_Capstone_Project.pdf)
+[Documentation link](https://github.com/Natcha13/swu-ds525/blob/1f487c73dc72a20cbde6f6ed1f93310e1a539aa7/capstone-project/Instruction_Capstone_Project.pdf)
 
 ## Run command
 ```sh
@@ -46,7 +46,7 @@ dbt init
 Test dbt connection
 
 ```sh
-cd dbt_empdata
+cd movieplatfrom
 dbt debug
 ```
 
